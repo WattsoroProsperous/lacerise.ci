@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir \"c:\\\\Users\\\\KARTA\\\\Desktop\\\\dev site\\\\lacerise.ci\\\\assets\")"
+      "Bash(dir \"c:\\\\Users\\\\KARTA\\\\Desktop\\\\dev site\\\\lacerise.ci\\\\assets\")",
+      "Bash(dir:*)"
     ]
   }
 }

@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
+    const navOverlay = document.getElementById('nav-overlay');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Scroll effect for header
@@ -134,36 +135,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', throttle(handleScroll, 100));
 
+    // Open mobile menu
+    function openMenu() {
+        navMenu.classList.add('active');
+        if (navOverlay) navOverlay.classList.add('active');
+        body.style.overflow = 'hidden';
+    }
+
+    // Close mobile menu
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        body.style.overflow = '';
+    }
+
     // Mobile menu toggle
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.add('active');
-            body.style.overflow = 'hidden';
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openMenu();
         });
     }
 
     if (navClose) {
-        navClose.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            body.style.overflow = '';
+        navClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMenu();
         });
+    }
+
+    // Close on overlay click
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMenu);
     }
 
     // Close menu on link click
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 
-    // Close menu on outside click
-    document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') &&
-            !navMenu.contains(e.target) &&
-            !navToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            body.style.overflow = '';
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
         }
     });
 
@@ -287,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
             );
 
             // Open WhatsApp with pre-filled message
-            const whatsappUrl = `https://wa.me/2250100026464?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/2250100021616?text=${whatsappMessage}`;
             window.open(whatsappUrl, '_blank');
 
             // Show success feedback
