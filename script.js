@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function openMenu() {
         navMenu.classList.add('active');
         if (navOverlay) navOverlay.classList.add('active');
+        if (navToggle) navToggle.style.display = 'none';
         body.style.overflow = 'hidden';
     }
 
@@ -146,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeMenu() {
         navMenu.classList.remove('active');
         if (navOverlay) navOverlay.classList.remove('active');
+        if (navToggle) navToggle.style.display = '';
         body.style.overflow = '';
     }
 
