@@ -185,6 +185,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Swipe to close menu (mobile UX)
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    if (navMenu) {
+        navMenu.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        navMenu.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right to close
+                closeMenu();
+            }
+        }, { passive: true });
+    }
+
     // Update active nav link based on scroll
     function updateActiveNavLink() {
         const sections = document.querySelectorAll('section[id]');
@@ -403,19 +422,34 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(styleSheet);
 
     // ============================================
-    // Specialty Cards Interaction
+    // Specialty Cards Interaction - Touch friendly
     // ============================================
 
     const specialtyCards = document.querySelectorAll('.specialty-card');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     specialtyCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
+        if (!isTouchDevice) {
+            // Desktop hover effects
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
 
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        } else {
+            // Touch feedback
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+                this.style.opacity = '0.9';
+            }, { passive: true });
+
+            card.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+                this.style.opacity = '1';
+            }, { passive: true });
+        }
     });
 
     // ============================================
@@ -557,25 +591,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // Video Autoplay on Visibility
+    // Video Autoplay on Visibility - Optimized for Mobile
     // ============================================
 
     const videos = document.querySelectorAll('.bg-video, .gallery-video');
+    const isMobileDevice = window.innerWidth <= 768;
+    const prefersReducedData = navigator.connection &&
+        (navigator.connection.saveData || navigator.connection.effectiveType === '2g' || navigator.connection.effectiveType === 'slow-2g');
 
     if ('IntersectionObserver' in window) {
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const video = entry.target;
                 if (entry.isIntersecting) {
-                    video.play().catch(() => {});
+                    // Don't autoplay on slow connections or if user prefers reduced data
+                    if (!prefersReducedData) {
+                        video.play().catch(() => {});
+                    }
                 } else {
                     video.pause();
                 }
             });
-        }, { threshold: 0.25 });
+        }, { threshold: isMobileDevice ? 0.5 : 0.25 });
 
         videos.forEach(video => videoObserver.observe(video));
     }
+
+    // Pause videos when page is not visible (saves battery)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            videos.forEach(video => video.pause());
+        } else {
+            videos.forEach(video => {
+                if (!prefersReducedData) {
+                    video.play().catch(() => {});
+                }
+            });
+        }
+    });
 
     // ============================================
     // Utility Functions
