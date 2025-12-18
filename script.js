@@ -4,6 +4,28 @@
  * Handles loading, navigation, animations, and interactions
  */
 
+// ============================================
+// Cache Clear - Force fresh assets on each visit
+// ============================================
+
+(async function clearCache() {
+    try {
+        // Clear Cache Storage (Service Worker caches)
+        if ('caches' in window) {
+            const cacheNames = await caches.keys();
+            await Promise.all(cacheNames.map(name => caches.delete(name)));
+        }
+
+        // Unregister Service Workers
+        if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map(reg => reg.unregister()));
+        }
+    } catch (e) {
+        // Silent fail
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Loading Screen & Asset Preloading
