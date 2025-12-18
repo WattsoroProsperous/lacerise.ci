@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Cerise - Pâtisserie & Glacier à Abidjan. Gâteaux, pop cakes et gourmandises uniques sur commande. Livraison à Abidjan.">
+    <title>La Cerise | Pâtisserie & Glacier - Abidjan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+    <!-- Écran de chargement -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="assets/logo.jpg" alt="La Cerise Logo" id="loader-logo-img">
+            </div>
+            <div class="loader-cherry">
+                <svg viewBox="0 0 100 120" class="cherry-svg">
+                    <path class="cherry-stem" d="M50 10 Q60 30, 50 50" stroke="#5D4E37" stroke-width="3" fill="none"/>
+                    <ellipse class="cherry-leaf" cx="62" cy="25" rx="12" ry="6" fill="#7BA66E" transform="rotate(-30 62 25)"/>
+                    <circle class="cherry-fruit" cx="50" cy="70" r="25" fill="#C41E3A"/>
+                    <ellipse class="cherry-shine" cx="42" cy="62" rx="6" ry="4" fill="rgba(255,255,255,0.4)" transform="rotate(-30 42 62)"/>
+                </svg>
+            </div>
+            <div class="loader-text">
+                <span>C</span><span>h</span><span>a</span><span>r</span><span>g</span><span>e</span><span>m</span><span>e</span><span>n</span><span>t</span><span>.</span><span>.</span><span>.</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.jpg" alt="La Cerise" class="logo-img">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Accueil</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">À Propos</a></li>
+                    <li class="nav-item"><a href="#specialties" class="nav-link">Nos Créations</a></li>
+                    <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Galerie</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+            <a href="#contact" class="nav-cta">Commander</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-background">
+                <img src="assets/black-cherry.jpg" alt="La Cerise" class="hero-bg-img" id="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-tagline">Pâtisserie & Glacier</span>
+                    <h1 class="hero-title">La Cerise</h1>
+                    <p class="hero-subtitle">Laissez-vous séduire par nos gourmandises uniques</p>
+                    <div class="hero-cta">
+                        <a href="#menu" class="btn btn-primary">Découvrir</a>
+                        <a href="https://wa.me/2250100026464" class="btn btn-outline" target="_blank">Commander</a>
+                    </div>
+                </div>
+                <div class="hero-info">
+                    <div class="hero-info-item">
+                        <span class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </span>
+                        <span>Zone 4, Abidjan</span>
+                    </div>
+                    <div class="hero-info-divider"></div>
+                    <div class="hero-info-item">
+                        <span class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </span>
+                        <span>Commande 3h à l'avance</span>
+                    </div>
+                    <div class="hero-info-divider"></div>
+                    <div class="hero-info-item">
+                        <span class="info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </span>
+                        <span>01 00 02 64 64</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="hero-scroll">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <img src="assets/about us.jpg" alt="La Cerise Pâtisserie" class="about-img" id="about-img" loading="lazy">
+                            <div class="frame-decoration frame-top-left"></div>
+                            <div class="frame-decoration frame-bottom-right"></div>
+                        </div>
+                        <div class="about-badge">
+                            <span class="badge-number">100%</span>
+                            <span class="badge-text">Artisanal</span>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <div class="section-tag">
+                            <span class="tag-line"></span>
+                            <span class="tag-text">Notre Histoire</span>
+                            <span class="tag-line"></span>
+                        </div>
+                        <h2 class="section-title">À Propos de <span class="highlight">La Cerise</span></h2>
+                        <p class="about-text">
+                            Nichée au cœur de la Zone 4 à Abidjan, <strong>La Cerise</strong> est bien plus qu'une simple pâtisserie.
+                            C'est un univers gourmand où chaque création est confectionnée avec passion et savoir-faire artisanal.
+                        </p>
+                        <p class="about-text">
+                            Notre engagement : vous offrir des moments de pur délice à travers des gâteaux uniques,
+                            des pop cakes irrésistibles et des pâtisseries qui éveillent tous vos sens.
+                        </p>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <div class="feature-icon-box">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Ingrédients Premium</h4>
+                                    <p>Sélection rigoureuse pour une qualité exceptionnelle</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="feature-icon-box">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Fait avec Amour</h4>
+                                    <p>Chaque création est unique et personnalisée</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Nous contacter</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialties Section -->
+        <section class="specialties section" id="specialties">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-line"></span>
+                        <span class="tag-text">Nos Spécialités</span>
+                        <span class="tag-line"></span>
+                    </div>
+                    <h2 class="section-title">Créations <span class="highlight">Gourmandes</span></h2>
+                    <p class="section-description">Découvrez notre sélection de délices artisanaux, préparés avec passion</p>
+                </div>
+                <div class="specialties-grid">
+                    <div class="specialty-card" data-aos="fade-up">
+                        <div class="card-image">
+                            <div class="card-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                    <path d="M9 9h.01M15 9h.01"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Pop Cakes</h3>
+                            <p class="card-text">Petites bouchées de bonheur sur bâtonnet, parfaites pour vos événements</p>
+                            <span class="card-price">À partir de 4 000 FCFA</span>
+                        </div>
+                        <div class="card-hover"></div>
+                    </div>
+                    <div class="specialty-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-image">
+                            <div class="card-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="8" width="18" height="12" rx="2"/>
+                                    <path d="M3 12h18"/>
+                                    <path d="M12 8V6a2 2 0 012-2h0a2 2 0 012 2v2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cake Nature</h3>
+                            <p class="card-text">La simplicité dans toute sa splendeur, moelleux et savoureux</p>
+                            <span class="card-price">À partir de 4 000 FCFA</span>
+                        </div>
+                        <div class="card-hover"></div>
+                    </div>
+                    <div class="specialty-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-image">
+                            <div class="card-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cake Marbré</h3>
+                            <p class="card-text">L'alliance parfaite du chocolat et de la vanille</p>
+                            <span class="card-price">À partir de 4 000 FCFA</span>
+                        </div>
+                        <div class="card-hover"></div>
+                    </div>
+                    <div class="specialty-card featured" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-badge">Nouveauté</div>
+                        <div class="card-image">
+                            <div class="card-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Gâteaux Personnalisés</h3>
+                            <p class="card-text">Créations sur mesure pour vos anniversaires et célébrations</p>
+                            <span class="card-price">Sur devis</span>
+                        </div>
+                        <div class="card-hover"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="bg-video" id="bg-video">
+                    <source src="assets/lacerise.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <div class="video-content container">
+                    <h2 class="video-title">L'Art de la Pâtisserie</h2>
+                    <p class="video-text">Chaque création est une œuvre d'art, façonnée avec passion et expertise</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu section" id="menu">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-line"></span>
+                        <span class="tag-text">Notre Carte</span>
+                        <span class="tag-line"></span>
+                    </div>
+                    <h2 class="section-title">Menu <span class="highlight">Gourmand</span></h2>
+                    <p class="section-description">Des prix abordables pour des saveurs exceptionnelles</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <div class="menu-card-header">
+                            <h3>Pâtisseries Classiques</h3>
+                            <div class="menu-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <span class="item-name">Pop Cakes (lot)</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 000 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Cake Nature</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 000 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Cake Marbré</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 000 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Cookies Maison</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 500 FCFA</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-card featured">
+                        <div class="menu-card-header">
+                            <h3>Gâteaux Sur Commande</h3>
+                            <div class="menu-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <span class="item-name">Gâteau Anniversaire</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">Sur devis</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Wedding Cake</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">Sur devis</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Gâteau Personnalisé</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">Sur devis</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Pièce Montée</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">Sur devis</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-card">
+                        <div class="menu-card-header">
+                            <h3>Glaces & Desserts</h3>
+                            <div class="menu-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="menu-item">
+                                <span class="item-name">Glace Artisanale</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 000 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Coupe Glacée</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 500 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Sundae</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 500 FCFA</span>
+                            </li>
+                            <li class="menu-item">
+                                <span class="item-name">Dessert du Jour</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 FCFA</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-note">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                    <p>Commande minimum 3 heures à l'avance. Livraison disponible sur Abidjan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery section" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-line"></span>
+                        <span class="tag-text">Notre Galerie</span>
+                        <span class="tag-line"></span>
+                    </div>
+                    <h2 class="section-title">Nos <span class="highlight">Réalisations</span></h2>
+                    <p class="section-description">Un aperçu de nos créations gourmandes</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item large">
+                        <video autoplay muted loop playsinline class="gallery-video">
+                            <source src="assets/our cake.mp4" type="video/mp4">
+                        </video>
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Nos Gâteaux</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/bienvenue à La Cerise,  Laissez-vous séduire par nos gourmandises, uniques.jpg" alt="Gourmandises" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Gourmandises</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <video autoplay muted loop playsinline class="gallery-video">
+                            <source src="assets/special noel.mp4" type="video/mp4">
+                        </video>
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Spécial Noël</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/about us.jpg" alt="Notre enseigne" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">Notre Boutique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="section-tag">
+                            <span class="tag-line"></span>
+                            <span class="tag-text">Contactez-nous</span>
+                            <span class="tag-line"></span>
+                        </div>
+                        <h2 class="section-title">Passez votre <span class="highlight">Commande</span></h2>
+                        <p class="contact-text">
+                            Envie d'une douceur ? Contactez-nous pour passer commande.
+                            Nous vous répondrons dans les plus brefs délais.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-box">
+                                    <h4>Adresse</h4>
+                                    <p>Zone 4, Rue Paul Langevin<br>Abidjan, Côte d'Ivoire</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-box">
+                                    <h4>Téléphone</h4>
+                                    <p><a href="tel:+2250100026464">01 00 02 64 64</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text-box">
+                                    <h4>Commandes</h4>
+                                    <p>Minimum 3 heures à l'avance<br>Livraison sur Abidjan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://instagram.com/lacerise_abj" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="https://facebook.com/lacerise.abj" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/2250100026464" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="Votre numéro">
+                            </div>
+                            <div class="form-group">
+                                <label for="product">Produit souhaité</label>
+                                <select id="product" name="product" required>
+                                    <option value="">Sélectionnez un produit</option>
+                                    <option value="pop-cakes">Pop Cakes</option>
+                                    <option value="cake-nature">Cake Nature</option>
+                                    <option value="cake-marbre">Cake Marbré</option>
+                                    <option value="gateau-anniversaire">Gâteau d'anniversaire</option>
+                                    <option value="gateau-personnalise">Gâteau personnalisé</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Décrivez votre commande..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Envoyer ma demande</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.3889889!2d-3.9938!3d5.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjAnMTEuMCJOIDPCsDU5JzM3LjciVw!5e0!3m2!1sfr!2sci!4v1234567890"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localisation La Cerise">
+                </iframe>
+                <div class="map-overlay-card">
+                    <img src="assets/logo.jpg" alt="La Cerise" class="map-logo">
+                    <h3>La Cerise</h3>
+                    <p>Zone 4, Rue Paul Langevin<br>Abidjan</p>
+                    <a href="https://wa.me/2250100026464" class="btn btn-primary btn-small">
+                        <span>Commander via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/logo.jpg" alt="La Cerise" class="footer-logo">
+                    <p class="footer-tagline">Pâtisserie & Glacier d'exception</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#about">À Propos</a></li>
+                            <li><a href="#specialties">Nos Créations</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:+2250100026464">01 00 02 64 64</a></li>
+                            <li><a href="https://wa.me/2250100026464">WhatsApp</a></li>
+                            <li><a href="https://instagram.com/lacerise_abj">Instagram</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Horaires</h4>
+                        <ul>
+                            <li>Lun - Sam: 8h - 20h</li>
+                            <li>Dimanche: 9h - 18h</li>
+                            <li>Commande 3h à l'avance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Cerise - Pâtisserie & Glacier. Tous droits réservés.</p>
+                <p class="footer-location">Zone 4, Rue Paul Langevin - Abidjan, Côte d'Ivoire</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Retour en haut">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
