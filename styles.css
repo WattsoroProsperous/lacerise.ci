@@ -1875,13 +1875,15 @@ input, textarea, select {
         top: 0;
         right: -100%;
         width: 80%;
-        max-width: 350px;
+        max-width: 320px;
         height: 100vh;
+        height: 100dvh;
         background: var(--color-white);
         flex-direction: column;
         padding: var(--spacing-4xl) var(--spacing-xl);
         box-shadow: var(--shadow-xl);
         transition: var(--transition-normal);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1892,22 +1894,39 @@ input, textarea, select {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-lg);
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
     }
 
     .nav-link {
         color: var(--color-black);
-        font-size: 1.1rem;
+        font-size: 1rem;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        text-shadow: none;
+    }
+
+    .nav-link:hover {
+        color: var(--color-cherry);
     }
 
     .nav-toggle,
     .nav-close {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
     }
 
     .nav-close {
         position: absolute;
-        top: var(--spacing-lg);
-        right: var(--spacing-lg);
+        top: var(--spacing-md);
+        right: var(--spacing-md);
         color: var(--color-black);
     }
 
@@ -1915,46 +1934,71 @@ input, textarea, select {
         display: none;
     }
 
+    .logo-img {
+        height: 50px;
+    }
+
+    .header.scrolled .logo-img {
+        height: 45px;
+    }
+
     /* Hero Mobile - Modern Design */
     .hero {
         min-height: 100vh;
         min-height: 100svh;
+        min-height: 100dvh;
         padding: 0;
+        display: flex;
+        align-items: center;
     }
 
     .hero-container {
-        padding: 100px 20px 40px;
+        padding: 100px 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-badge {
-        padding: 8px 18px;
-        margin-bottom: var(--spacing-md);
+        padding: 8px 16px;
+        margin-bottom: 12px;
     }
 
     .hero-badge span {
-        font-size: 0.65rem;
-        letter-spacing: 0.15em;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
     }
 
     .title-sub {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
+        font-size: 1rem;
+        margin-bottom: 4px;
     }
 
     .title-main {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .hero-title {
+        margin-bottom: 10px;
     }
 
     .hero-tagline {
-        font-size: 0.75rem;
-        letter-spacing: 0.2em;
-        margin-bottom: var(--spacing-sm);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 10px;
     }
 
     .hero-description {
-        font-size: 0.9rem;
-        line-height: 1.7;
-        margin-bottom: var(--spacing-lg);
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding: 0 5px;
     }
 
     .hero-description br {
@@ -1964,71 +2008,148 @@ input, textarea, select {
     .hero-cta {
         flex-direction: column;
         width: 100%;
-        max-width: 300px;
-        gap: 12px;
-        margin-bottom: var(--spacing-xl);
+        max-width: 280px;
+        gap: 10px;
+        margin-bottom: 20px;
     }
 
     .btn-hero-primary,
     .btn-hero-whatsapp {
         width: 100%;
-        padding: 14px 24px;
-        font-size: 0.8rem;
+        padding: 14px 20px;
+        font-size: 0.75rem;
+        border-radius: 6px;
+    }
+
+    .btn-hero-primary svg,
+    .btn-hero-whatsapp svg {
+        width: 16px;
+        height: 16px;
     }
 
     .hero-features {
-        flex-direction: column;
-        gap: 12px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
+        justify-content: center;
     }
 
     .hero-feature {
-        padding: 14px 20px;
-        width: 100%;
-        justify-content: flex-start;
+        padding: 10px 14px;
+        flex: 0 1 auto;
+        min-width: 0;
+        justify-content: center;
     }
 
     .feature-icon {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
     }
 
     .feature-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .feature-text {
+        min-width: 0;
     }
 
     .feature-value {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .feature-label {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+        white-space: nowrap;
     }
 
     .hero-scroll {
         display: none;
     }
 
+    /* About Section Mobile */
+    .about-content {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .about-img-wrapper {
+        max-width: 100%;
+    }
+
+    .about-img {
+        height: 280px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-badge {
+        width: 70px;
+        height: 70px;
+        right: 15px;
+        bottom: -10px;
+    }
+
     /* Specialties Mobile */
     .specialties-grid {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        max-width: 350px;
         margin: 0 auto;
+        gap: var(--spacing-lg);
+    }
+
+    .specialty-card {
+        padding: var(--spacing-lg);
+    }
+
+    /* Menu Mobile */
+    .menu-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .menu-tab {
+        padding: 10px 16px;
+        font-size: 0.75rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
     /* Gallery Mobile */
     .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
+        gap: 10px;
     }
 
     .gallery-item,
     .gallery-item.large {
         grid-column: span 1;
         grid-row: span 1;
-        height: 250px;
+        height: 180px;
+    }
+
+    .gallery-item.large:first-child {
+        grid-column: span 2;
+        height: 200px;
+    }
+
+    /* Testimonials Mobile */
+    .testimonial-card {
+        padding: var(--spacing-lg);
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
     }
 
     /* Map Mobile */
@@ -2037,13 +2158,42 @@ input, textarea, select {
         top: auto;
         left: auto;
         transform: none;
-        margin: calc(-1 * var(--spacing-3xl)) auto var(--spacing-xl);
-        max-width: 90%;
+        margin: calc(-1 * var(--spacing-xl)) auto var(--spacing-lg);
+        max-width: 95%;
+        padding: var(--spacing-lg);
+    }
+
+    /* Contact Mobile */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 
     /* Footer Mobile */
+    .footer-main {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    .footer-brand {
+        text-align: center;
+        align-items: center;
+    }
+
     .footer-links {
         grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
         text-align: center;
     }
 }
@@ -2051,7 +2201,7 @@ input, textarea, select {
 /* Small Mobile */
 @media (max-width: 480px) {
     :root {
-        --spacing-3xl: 2.5rem;
+        --spacing-3xl: 2rem;
         --spacing-4xl: 2.5rem;
     }
 
@@ -2061,159 +2211,63 @@ input, textarea, select {
 
     /* Hero - Small screens */
     .hero-container {
-        padding: 90px 15px 30px;
+        padding: 90px 15px 25px;
     }
 
     .hero-badge {
-        padding: 6px 14px;
-    }
-
-    .hero-badge span {
-        font-size: 0.6rem;
-    }
-
-    .title-sub {
-        font-size: 1rem;
-    }
-
-    .title-main {
-        font-size: 2.5rem;
-    }
-
-    .hero-tagline {
-        font-size: 0.65rem;
-        letter-spacing: 0.15em;
-    }
-
-    .hero-description {
-        font-size: 0.85rem;
-        line-height: 1.6;
-    }
-
-    .hero-cta {
-        max-width: 260px;
-    }
-
-    .btn-hero-primary,
-    .btn-hero-whatsapp {
-        padding: 12px 20px;
-        font-size: 0.75rem;
-    }
-
-    .hero-features {
-        max-width: 260px;
-        gap: 10px;
-    }
-
-    .hero-feature {
-        padding: 12px 16px;
-    }
-
-    .feature-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .feature-value {
-        font-size: 0.9rem;
-    }
-
-    .feature-label {
-        font-size: 0.65rem;
-    }
-
-    /* General */
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .about-img {
-        height: 300px;
-    }
-
-    .about-badge {
-        width: 80px;
-        height: 80px;
-        right: 10px;
-        bottom: -15px;
-    }
-
-    .badge-number {
-        font-size: 1.25rem;
-    }
-
-    .loader-logo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .back-to-top {
-        right: var(--spacing-md);
-        bottom: var(--spacing-md);
-        width: 40px;
-        height: 40px;
-    }
-
-    .section {
-        padding: var(--spacing-3xl) 0;
-    }
-
-    .section-title {
-        font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-}
-
-/* Extra Small Mobile (iPhone SE, small Android) */
-@media (max-width: 380px) {
-    .hero-container {
-        padding: 80px 12px 25px;
-    }
-
-    .hero-badge {
-        padding: 5px 12px;
+        padding: 6px 12px;
         margin-bottom: 10px;
     }
 
     .hero-badge span {
         font-size: 0.55rem;
+        letter-spacing: 0.1em;
     }
 
     .title-sub {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .title-main {
-        font-size: 2.2rem;
+        font-size: clamp(2.2rem, 11vw, 2.8rem);
+    }
+
+    .hero-title {
+        margin-bottom: 8px;
     }
 
     .hero-tagline {
         font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 8px;
     }
 
     .hero-description {
         font-size: 0.8rem;
+        line-height: 1.5;
+        margin-bottom: 16px;
     }
 
     .hero-cta {
-        max-width: 240px;
-        gap: 10px;
+        max-width: 250px;
+        gap: 8px;
+        margin-bottom: 16px;
     }
 
     .btn-hero-primary,
     .btn-hero-whatsapp {
-        padding: 11px 18px;
+        padding: 12px 18px;
         font-size: 0.7rem;
-    }
-
-    .hero-features {
-        max-width: 240px;
         gap: 8px;
     }
 
+    .hero-features {
+        gap: 6px;
+    }
+
     .hero-feature {
-        padding: 10px 14px;
-        gap: 10px;
+        padding: 8px 12px;
+        gap: 8px;
     }
 
     .feature-icon {
@@ -2227,51 +2281,407 @@ input, textarea, select {
     }
 
     .feature-value {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .feature-label {
+        font-size: 0.55rem;
+    }
+
+    /* General */
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .section-header {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* About */
+    .about-img {
+        height: 250px;
+    }
+
+    .about-badge {
+        width: 65px;
+        height: 65px;
+        right: 10px;
+        bottom: -10px;
+    }
+
+    .badge-number {
+        font-size: 1.1rem;
+    }
+
+    .about-description {
+        font-size: 0.9rem;
+    }
+
+    /* Specialties */
+    .specialties-grid {
+        max-width: 100%;
+    }
+
+    .specialty-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .specialty-title {
+        font-size: 1.1rem;
+    }
+
+    /* Menu */
+    .menu-item {
+        padding: var(--spacing-md);
+    }
+
+    .menu-item-title {
+        font-size: 1rem;
+    }
+
+    .menu-item-price {
+        font-size: 1rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        gap: 8px;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        height: 150px;
+    }
+
+    .gallery-item.large:first-child {
+        height: 170px;
+    }
+
+    /* Loader */
+    .loader-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .loader-text {
+        font-size: 1rem;
+    }
+
+    /* Back to top */
+    .back-to-top {
+        right: var(--spacing-md);
+        bottom: var(--spacing-md);
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Extra Small Mobile (iPhone SE, small Android) */
+@media (max-width: 380px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .hero-container {
+        padding: 80px 12px 20px;
+    }
+
+    .hero-badge {
+        padding: 5px 10px;
+        margin-bottom: 8px;
+    }
+
+    .hero-badge span {
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
+    }
+
+    .title-sub {
+        font-size: 0.85rem;
+    }
+
+    .title-main {
+        font-size: clamp(1.9rem, 12vw, 2.3rem);
+    }
+
+    .hero-title {
+        margin-bottom: 6px;
+    }
+
+    .hero-tagline {
+        font-size: 0.55rem;
+        margin-bottom: 6px;
+    }
+
+    .hero-description {
+        font-size: 0.75rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .hero-cta {
+        max-width: 220px;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-whatsapp {
+        padding: 10px 14px;
+        font-size: 0.65rem;
+        gap: 6px;
+    }
+
+    .btn-hero-primary svg,
+    .btn-hero-whatsapp svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .hero-features {
+        gap: 5px;
+    }
+
+    .hero-feature {
+        padding: 6px 10px;
+        gap: 6px;
+        border-radius: 8px;
+    }
+
+    .feature-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .feature-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .feature-value {
+        font-size: 0.75rem;
+    }
+
+    .feature-label {
+        font-size: 0.5rem;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: clamp(1.3rem, 6vw, 1.6rem);
+    }
+
+    .tag-text {
         font-size: 0.6rem;
+    }
+
+    /* Logo */
+    .logo-img {
+        height: 45px;
+    }
+
+    .header.scrolled .logo-img {
+        height: 40px;
+    }
+
+    /* Gallery */
+    .gallery-item,
+    .gallery-item.large {
+        height: 130px;
+    }
+
+    .gallery-item.large:first-child {
+        height: 150px;
+    }
+
+    /* Loader */
+    .loader-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .loader-cherry {
+        width: 50px;
+        height: 65px;
+    }
+
+    .loader-text {
+        font-size: 0.9rem;
+    }
+
+    .loader-progress {
+        width: 160px;
     }
 }
 
 /* Very short screens (landscape or small height) */
 @media (max-height: 700px) and (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
     .hero-container {
         padding-top: 70px;
-        padding-bottom: 20px;
+        padding-bottom: 15px;
     }
 
     .hero-badge {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+        padding: 5px 12px;
+    }
+
+    .hero-badge span {
+        font-size: 0.5rem;
     }
 
     .hero-title {
-        margin-bottom: 8px;
-    }
-
-    .title-main {
-        font-size: 2.5rem;
-    }
-
-    .hero-tagline {
         margin-bottom: 6px;
     }
 
+    .title-sub {
+        font-size: 0.85rem;
+    }
+
+    .title-main {
+        font-size: clamp(1.8rem, 8vw, 2.2rem);
+    }
+
+    .hero-tagline {
+        font-size: 0.55rem;
+        margin-bottom: 5px;
+    }
+
     .hero-description {
-        margin-bottom: 12px;
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
     }
 
     .hero-cta {
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+        gap: 6px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-whatsapp {
+        padding: 10px 16px;
+        font-size: 0.65rem;
     }
 
     .hero-features {
-        gap: 8px;
+        gap: 5px;
     }
 
     .hero-feature {
-        padding: 10px 14px;
+        padding: 6px 10px;
+    }
+
+    .feature-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .feature-value {
+        font-size: 0.75rem;
+    }
+
+    .feature-label {
+        font-size: 0.5rem;
+    }
+}
+
+/* Extra short screens (iPhone SE landscape, etc.) */
+@media (max-height: 600px) {
+    .hero-container {
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
+
+    .hero-badge {
+        display: none;
+    }
+
+    .hero-title {
+        margin-bottom: 5px;
+    }
+
+    .title-sub {
+        font-size: 0.8rem;
+    }
+
+    .title-main {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    .hero-tagline {
+        font-size: 0.5rem;
+        margin-bottom: 4px;
+    }
+
+    .hero-description {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+
+    .hero-cta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-whatsapp {
+        padding: 8px 14px;
+        font-size: 0.6rem;
+        width: auto;
+    }
+
+    .hero-features {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero-feature {
+        padding: 5px 8px;
+    }
+
+    .feature-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .feature-icon svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .feature-value {
+        font-size: 0.7rem;
+    }
+
+    .feature-label {
+        display: none;
     }
 }
 
