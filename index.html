@@ -71,11 +71,16 @@
     <main>
         <!-- Hero Section - Elegant Design -->
         <section class="hero" id="home">
-            <!-- Mint Background -->
+            <!-- Rich Background -->
             <div class="hero-background">
                 <div class="hero-mint-bg"></div>
                 <div class="hero-pattern"></div>
             </div>
+
+            <!-- Floating Decorations -->
+            <div class="hero-decor hero-decor-1"></div>
+            <div class="hero-decor hero-decor-2"></div>
+            <div class="hero-decor hero-decor-3"></div>
 
             <!-- Decorative Frame -->
             <div class="hero-frame">
@@ -88,31 +93,27 @@
             <!-- Main Content -->
             <div class="hero-container">
                 <div class="hero-content">
-                    <!-- Ornament Top -->
-                    <div class="hero-ornament">
-                        <svg viewBox="0 0 200 40" class="ornament-svg">
-                            <path d="M100 35 Q80 35 70 25 Q60 15 40 15 Q20 15 0 25" stroke="currentColor" fill="none" stroke-width="1.5"/>
-                            <path d="M100 35 Q120 35 130 25 Q140 15 160 15 Q180 15 200 25" stroke="currentColor" fill="none" stroke-width="1.5"/>
-                            <circle cx="100" cy="35" r="3" fill="currentColor"/>
-                            <circle cx="70" cy="25" r="2" fill="currentColor"/>
-                            <circle cx="130" cy="25" r="2" fill="currentColor"/>
-                        </svg>
+                    <!-- Logo Badge -->
+                    <div class="hero-logo-badge">
+                        <img src="assets/logo.jpg" alt="La Cerise" class="hero-logo-img">
                     </div>
 
-                    <span class="hero-tagline">Pâtisserie & Glacier</span>
+                    <span class="hero-tagline">Pâtisserie & Glacier d'Exception</span>
 
                     <h1 class="hero-title">
                         <span class="title-main">La Cerise</span>
                     </h1>
 
-                    <!-- Cherry Illustration -->
-                    <div class="hero-cherry">
-                        <svg viewBox="0 0 80 100" class="cherry-illustration">
-                            <path class="cherry-stem" d="M40 10 Q50 25 45 45" stroke="#5D4E37" stroke-width="2.5" fill="none"/>
-                            <ellipse class="cherry-leaf" cx="52" cy="20" rx="12" ry="6" fill="#7BA66E" transform="rotate(-25 52 20)"/>
-                            <circle class="cherry-body" cx="40" cy="65" r="22" fill="#C41E3A"/>
-                            <ellipse class="cherry-shine" cx="32" cy="58" rx="5" ry="3" fill="rgba(255,255,255,0.35)" transform="rotate(-30 32 58)"/>
+                    <!-- Decorative Line -->
+                    <div class="hero-divider">
+                        <span class="divider-line"></span>
+                        <svg class="divider-cherry" viewBox="0 0 40 50" width="30" height="38">
+                            <path d="M20 5 Q25 12 22 22" stroke="#5D4E37" stroke-width="2" fill="none"/>
+                            <ellipse cx="27" cy="10" rx="8" ry="4" fill="#7BA66E" transform="rotate(-25 27 10)"/>
+                            <circle cx="20" cy="35" r="14" fill="#C41E3A"/>
+                            <ellipse cx="15" cy="30" rx="4" ry="2.5" fill="rgba(255,255,255,0.35)" transform="rotate(-30 15 30)"/>
                         </svg>
+                        <span class="divider-line"></span>
                     </div>
 
                     <p class="hero-subtitle">
@@ -120,24 +121,18 @@
                     </p>
 
                     <p class="hero-description">
-                        Gâteaux personnalisés, pop cakes & délices artisanaux<br>
-                        <span class="highlight-text">Zone 4, Abidjan</span>
+                        Gâteaux personnalisés, pop cakes & délices artisanaux
+                        <span class="highlight-text">• Zone 4, Abidjan</span>
                     </p>
-
-                    <!-- Ornament Bottom -->
-                    <div class="hero-ornament ornament-bottom">
-                        <svg viewBox="0 0 200 40" class="ornament-svg">
-                            <path d="M100 5 Q80 5 70 15 Q60 25 40 25 Q20 25 0 15" stroke="currentColor" fill="none" stroke-width="1.5"/>
-                            <path d="M100 5 Q120 5 130 15 Q140 25 160 25 Q180 25 200 15" stroke="currentColor" fill="none" stroke-width="1.5"/>
-                            <circle cx="100" cy="5" r="3" fill="currentColor"/>
-                        </svg>
-                    </div>
 
                     <div class="hero-cta">
                         <a href="#menu" class="btn btn-cherry">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                            </svg>
                             <span>Découvrir</span>
                         </a>
-                        <a href="https://wa.me/2250100026464" class="btn btn-outline-mint" target="_blank">
+                        <a href="https://wa.me/2250100026464" class="btn btn-whatsapp" target="_blank">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
@@ -145,21 +140,28 @@
                         </a>
                     </div>
 
-                    <!-- Info Pills -->
-                    <div class="hero-info">
-                        <div class="info-pill">
-                            <span class="info-icon">⏱</span>
-                            <span>3h min</span>
+                    <!-- Info Cards -->
+                    <div class="hero-info-cards">
+                        <div class="info-card">
+                            <span class="info-card-icon">⏱️</span>
+                            <div class="info-card-text">
+                                <span class="info-card-value">3h</span>
+                                <span class="info-card-label">minimum</span>
+                            </div>
                         </div>
-                        <div class="info-divider"></div>
-                        <div class="info-pill">
-                            <span class="info-icon">📍</span>
-                            <span>Livraison Abidjan</span>
+                        <div class="info-card">
+                            <span class="info-card-icon">🚗</span>
+                            <div class="info-card-text">
+                                <span class="info-card-value">Livraison</span>
+                                <span class="info-card-label">Abidjan</span>
+                            </div>
                         </div>
-                        <div class="info-divider"></div>
-                        <div class="info-pill">
-                            <span class="info-icon">💰</span>
-                            <span>Dès 4000 FCFA</span>
+                        <div class="info-card">
+                            <span class="info-card-icon">🍰</span>
+                            <div class="info-card-text">
+                                <span class="info-card-value">4000</span>
+                                <span class="info-card-label">FCFA</span>
+                            </div>
                         </div>
                     </div>
                 </div>
