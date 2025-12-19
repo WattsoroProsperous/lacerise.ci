@@ -1282,7 +1282,8 @@ input, textarea, select {
     height: 100%;
 }
 
-.bg-video {
+.bg-video,
+.bg-image {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1359,7 +1360,7 @@ input, textarea, select {
 .menu-card-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 12px;
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-md);
     border-bottom: 2px solid var(--color-cream);
@@ -1369,6 +1370,11 @@ input, textarea, select {
     font-family: var(--font-display);
     font-size: 1.25rem;
     color: var(--color-black);
+}
+
+.menu-card-emoji {
+    font-size: 1.8rem;
+    line-height: 1;
 }
 
 .menu-icon {
@@ -1416,12 +1422,49 @@ input, textarea, select {
     white-space: nowrap;
 }
 
+/* Menu CTA Button */
+.menu-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+}
+
+.btn-view-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--color-cherry) 0%, var(--color-cherry-dark) 100%);
+    border: none;
+    border-radius: 50px;
+    color: var(--color-white);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(196, 30, 58, 0.3);
+}
+
+.btn-view-menu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(196, 30, 58, 0.4);
+}
+
+.btn-view-menu svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-view-menu:hover svg {
+    transform: translateX(5px);
+}
+
 .menu-note {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
     padding: var(--spacing-lg);
     background: var(--color-mint-light);
     border-radius: var(--radius-md);
@@ -2669,6 +2712,10 @@ input, textarea, select {
         font-size: 1.15rem;
     }
 
+    .menu-card-emoji {
+        font-size: 1.6rem;
+    }
+
     .menu-icon {
         width: 45px;
         height: 45px;
@@ -2691,8 +2738,17 @@ input, textarea, select {
         font-weight: 700;
     }
 
+    .menu-cta-wrapper {
+        margin-top: 30px;
+    }
+
+    .btn-view-menu {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+
     .menu-note {
-        margin-top: 24px;
+        margin-top: 20px;
         padding: 16px 20px;
         border-radius: 12px;
     }
@@ -3186,6 +3242,10 @@ input, textarea, select {
         font-size: 1.05rem;
     }
 
+    .menu-card-emoji {
+        font-size: 1.4rem;
+    }
+
     .menu-icon {
         width: 40px;
         height: 40px;
@@ -3203,8 +3263,18 @@ input, textarea, select {
         font-size: 0.9rem;
     }
 
+    .menu-cta-wrapper {
+        margin-top: 24px;
+    }
+
+    .btn-view-menu {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
     .menu-note {
-        margin-top: 20px;
+        margin-top: 16px;
         padding: 14px 16px;
     }
 

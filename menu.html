@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Menu complet de La Cerise - Pâtisserie & Glacier à Abidjan.">
+    <title>Menu | La Cerise - Pâtisserie & Glacier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu-styles.css">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body class="menu-page">
+    <!-- Header Pro -->
+    <header class="book-header">
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>Retour</span>
+        </a>
+        <div class="header-center">
+            <div class="header-logo">
+                <img src="assets/logo.jpg" alt="La Cerise">
+            </div>
+            <span class="header-title">Notre Menu</span>
+        </div>
+        <div class="header-right"></div>
+    </header>
+
+    <!-- Category Tabs -->
+    <nav class="book-tabs">
+        <button class="book-tab active" data-page="0">Accueil</button>
+        <button class="book-tab" data-page="1">Pâtisseries</button>
+        <button class="book-tab" data-page="3">Crêpes</button>
+        <button class="book-tab" data-page="5">Glaces</button>
+        <button class="book-tab" data-page="7">Plats</button>
+        <button class="book-tab" data-page="10">Boissons</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="book-container">
+        <div class="book" id="book">
+
+            <!-- Page 0: Cover -->
+            <div class="page cover active" data-page="0">
+                <div class="page-content">
+                    <div class="cover-logo">
+                        <img src="assets/logo.jpg" alt="La Cerise">
+                    </div>
+                    <h1 class="cover-title">La Cerise</h1>
+                    <p class="cover-subtitle">Pâtisserie & Glacier</p>
+                    <div class="cover-divider">
+                        <span>◆</span>
+                    </div>
+                    <h2 class="cover-menu-title">Menu</h2>
+                    <p class="cover-hint">Swipez ou utilisez les boutons</p>
+                </div>
+            </div>
+
+            <!-- Page 1: Pâtisseries -->
+            <div class="page" data-page="1">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Pâtisseries</h2>
+                        <p>Artisanales</p>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Cake & Cookies</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Tranche cake</span>
+                                <span class="item-desc">Marbré, citron, vanille, chocolat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Cookie</span>
+                                <span class="item-desc">Chocolat, pistache, noisette, framboise</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">1 500 F</span>
+                            </div>
+                            <div class="menu-item featured">
+                                <span class="item-name">Moelleux au chocolat</span>
+                                <span class="item-badge">★</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 500 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Trompe-l'œil & Tartes</h3>
+                        <div class="special-box">
+                            <p>Poire, mangue, café, vanille, noisettes, citron...</p>
+                            <span class="special-tag">En vitrine</span>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">01</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: Pâtisseries suite -->
+            <div class="page" data-page="2">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Amuse-bouche</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Bonbon chocolat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">1 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Macaron au choix</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">1 200 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Verrine chocolat</span>
+                                <span class="item-desc">Chocolat / trois chocolats</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">02</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3: Crêpes & Gaufres -->
+            <div class="page" data-page="3">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Crêpes & Gaufres</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Crêpes</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Crêpe au sucre</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Crêpe trois chocolats</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Crêpe au chocolat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 000 F</span>
+                            </div>
+                            <div class="menu-item featured">
+                                <span class="item-name">Crêpe Kunafa pistache</span>
+                                <span class="item-badge">Chef</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 500 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">03</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: Crêpes suite -->
+            <div class="page" data-page="4">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Pancakes & Gaufres</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Pancake chocolat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Pancake marocain</span>
+                                <span class="item-desc">Beurre et miel</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Gaufres au sucre</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Gaufres fruits rouges</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Gaufres au chocolat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Pain perdu</span>
+                                <span class="item-desc">Glace vanille, caramel beurre salé</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">04</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 5: Glaces -->
+            <div class="page" data-page="5">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Glaces</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Cornets & Boules</h3>
+                        <div class="price-grid">
+                            <div class="price-item">
+                                <span>Cornet simple</span>
+                                <span>1 500 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Cornet double</span>
+                                <span>2 000 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>1 boule</span>
+                                <span>1 500 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>2 boules</span>
+                                <span>2 000 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>3 boules</span>
+                                <span>3 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Classiques — 3 500 F</h3>
+                        <div class="chips-grid">
+                            <span class="chip">Sundae</span>
+                            <span class="chip">Milkshake</span>
+                            <span class="chip">Café liégeois</span>
+                            <span class="chip">Chocolat liégeois</span>
+                            <span class="chip">Dame blanche</span>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">05</span>
+                        <div class="page-continue">
+                            <span>Coupes</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 6: Glaces suite -->
+            <div class="page" data-page="6">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Coupes Gourmandes</h2>
+                    </div>
+
+                    <div class="coupe-signature">
+                        <span class="sig-badge">Signature</span>
+                        <h4>Coupe La Cerise</h4>
+                        <span class="sig-price">4 000 F</span>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Toutes les coupes — 4 000 F</h3>
+                        <div class="chips-grid">
+                            <span class="chip">Banana Split</span>
+                            <span class="chip">Coupe fruits</span>
+                            <span class="chip">Oreo</span>
+                            <span class="chip">Snickers</span>
+                            <span class="chip">KitKat</span>
+                            <span class="chip">Kinder Bueno</span>
+                            <span class="chip">Ferrero</span>
+                            <span class="chip">Spéculoos</span>
+                            <span class="chip">Raffaello</span>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">06</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 7: Plats Déjeuner -->
+            <div class="page" data-page="7">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Déjeuner</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Petit-déjeuner</h3>
+                        <div class="menu-items compact">
+                            <div class="menu-item">
+                                <span class="item-name">Matin</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Chakchouka</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item featured">
+                                <span class="item-name">Assiette complète</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Croissant + boisson chaude</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Pain chocolat + boisson</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Œufs brouillés + pain</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">07</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 8: Plats suite -->
+            <div class="page" data-page="8">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Omelettes & Toasts</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="menu-items compact">
+                            <div class="menu-item">
+                                <span class="item-name">Omelette Khiyar</span>
+                                <span class="item-desc">Halloumi, crudités & pain</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Omelette shakshouka</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Toast Avocat</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Toast Avocat + œuf</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Brioche perdue</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Club sandwich</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">6 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">08</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 9: Salades & Dessert -->
+            <div class="page" data-page="9">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Salades & Dessert</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Salades</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Salade César</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">7 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Salade Saumon</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">8 000 F</span>
+                            </div>
+                            <div class="menu-item featured">
+                                <span class="item-name">Salade La Cerise</span>
+                                <span class="item-badge">★</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">8 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Dessert</h3>
+                        <div class="menu-items">
+                            <div class="menu-item featured">
+                                <span class="item-name">Cheesecake</span>
+                                <span class="item-badge">★</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">09</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 10: Boissons - Jus & Mocktails -->
+            <div class="page" data-page="10">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Boissons</h2>
+                        <p>Jus & Mocktails</p>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Jus de Fruits</h3>
+                        <div class="menu-items compact">
+                            <div class="menu-item">
+                                <span class="item-name">Jus simple</span>
+                                <span class="item-desc">Passion, orange, ananas, pastèque</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Jus pressé</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 500 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Cocktail de fruits</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Mocktails — 4 000 F</h3>
+                        <div class="chips-grid">
+                            <span class="chip">Limonade 3k</span>
+                            <span class="chip">Berry Burn</span>
+                            <span class="chip">Virgin Colada</span>
+                            <span class="chip">Frozen Margarita</span>
+                            <span class="chip">Virgin Mojito</span>
+                            <span class="chip">Blue Lagoon</span>
+                            <span class="chip highlight">La Cerise ★</span>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">10</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 11: Boissons Froides -->
+            <div class="page" data-page="11">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Boissons Froides</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <span class="item-name">Milkshake</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Frappuccino</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Ice tea</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Smoothie</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Jus detox</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">5 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Chocolat froid</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">4 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">11</span>
+                        <div class="page-continue">
+                            <span>Cafés</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 12: Cafés -->
+            <div class="page" data-page="12">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Cafés</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="two-columns">
+                            <div class="col">
+                                <div class="mini-item"><span>Espresso</span><span>1 500 F</span></div>
+                                <div class="mini-item"><span>Espresso allongé</span><span>1 500 F</span></div>
+                                <div class="mini-item"><span>Double Espresso</span><span>2 500 F</span></div>
+                                <div class="mini-item"><span>Latte</span><span>2 500 F</span></div>
+                                <div class="mini-item"><span>Americano</span><span>2 500 F</span></div>
+                            </div>
+                            <div class="col">
+                                <div class="mini-item"><span>Cappuccino</span><span>3 000 F</span></div>
+                                <div class="mini-item"><span>Café latte</span><span>3 000 F</span></div>
+                                <div class="mini-item"><span>Affogato</span><span>3 500 F</span></div>
+                                <div class="mini-item"><span>Café moka</span><span>3 500 F</span></div>
+                                <div class="mini-item"><span>Latte Bicenta</span><span>3 500 F</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">12</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 13: Thés & Chocolats -->
+            <div class="page" data-page="13">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Thés & Chocolats</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Thés</h3>
+                        <div class="menu-items compact">
+                            <div class="menu-item">
+                                <span class="item-name">Thé chaud</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Thé infusion</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">2 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Matcha</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 500 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3 class="section-title">Chocolats Chauds</h3>
+                        <div class="menu-items compact">
+                            <div class="menu-item">
+                                <span class="item-name">Chocolat chaud</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Chocolat chaud blanc</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                            <div class="menu-item">
+                                <span class="item-name">Chocolat chaud noir</span>
+                                <span class="item-dots"></span>
+                                <span class="item-price">3 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">13</span>
+                        <div class="page-continue">
+                            <span>Suite</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 14: Soft -->
+            <div class="page" data-page="14">
+                <div class="page-content">
+                    <div class="page-header small">
+                        <h2>Soft Drinks</h2>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="price-grid">
+                            <div class="price-item">
+                                <span>Eau 30 ml</span>
+                                <span>500 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Eau 50 ml</span>
+                                <span>1 000 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Eau 1.5 L</span>
+                                <span>2 000 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Perrier</span>
+                                <span>2 000 F</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Tonic</span>
+                                <span>2 000 F</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-footer">
+                        <span class="page-number">14</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 15: Back Cover -->
+            <div class="page back-cover" data-page="15">
+                <div class="page-content">
+                    <div class="back-content">
+                        <h2>Merci</h2>
+                        <p class="script-text">de votre visite</p>
+
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span>—</span>
+                                <span>Abidjan, Côte d'Ivoire</span>
+                            </div>
+                            <div class="info-item">
+                                <span>—</span>
+                                <span>+225 05 75 73 71 73</span>
+                            </div>
+                            <div class="info-item">
+                                <span>—</span>
+                                <span>Commande 3h à l'avance</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/2250575737173" class="whatsapp-btn" target="_blank">
+                            Commander
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-btn prev" id="prevBtn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            <span>Précédent</span>
+        </button>
+
+        <div class="page-indicator">
+            <span class="current" id="currentPage">1</span> / <span id="totalPages">16</span>
+        </div>
+
+        <button class="nav-btn next" id="nextBtn">
+            <span>Suivant</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const tabs = document.querySelectorAll('.book-tab');
+            const currentPageEl = document.getElementById('currentPage');
+            const totalPagesEl = document.getElementById('totalPages');
+
+            let currentPage = 0;
+            const totalPages = pages.length;
+
+            totalPagesEl.textContent = totalPages;
+
+            function updateUI() {
+                // Update pages visibility
+                pages.forEach((page, index) => {
+                    page.classList.toggle('active', index === currentPage);
+                });
+
+                // Update buttons
+                prevBtn.disabled = currentPage === 0;
+                nextBtn.disabled = currentPage >= totalPages - 1;
+
+                // Update indicator
+                currentPageEl.textContent = currentPage + 1;
+
+                // Update tabs
+                let closestTab = tabs[0];
+                tabs.forEach(tab => {
+                    const tabPage = parseInt(tab.dataset.page);
+                    if (tabPage <= currentPage) {
+                        closestTab = tab;
+                    }
+                });
+                tabs.forEach(t => t.classList.remove('active'));
+                closestTab.classList.add('active');
+
+                // Scroll to top of page content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function goToPage(pageNum) {
+                if (pageNum >= 0 && pageNum < totalPages) {
+                    currentPage = pageNum;
+                    updateUI();
+                }
+            }
+
+            // Navigation buttons
+            nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+            prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+
+            // Tab clicks
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    goToPage(parseInt(tab.dataset.page));
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') goToPage(currentPage + 1);
+                if (e.key === 'ArrowLeft') goToPage(currentPage - 1);
+            });
+
+            // Touch swipe
+            let touchStartX = 0;
+            const bookContainer = document.querySelector('.book-container');
+
+            bookContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            bookContainer.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > 60) {
+                    if (diff > 0) {
+                        goToPage(currentPage + 1);
+                    } else {
+                        goToPage(currentPage - 1);
+                    }
+                }
+            }, { passive: true });
+
+            // Initialize
+            updateUI();
+        });
+    </script>
+</body>
+</html>
