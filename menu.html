@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="menu-styles.css">
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <!-- html2pdf.js pour génération PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body class="menu-page">
     <!-- Header Pro -->
@@ -27,8 +29,25 @@
             </div>
             <span class="header-title">Notre Menu</span>
         </div>
-        <div class="header-right"></div>
+        <div class="header-right">
+            <button id="downloadPdfBtn" class="download-btn" title="Télécharger le menu PDF">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>PDF</span>
+            </button>
+        </div>
     </header>
+
+    <!-- PDF Loading Overlay -->
+    <div id="pdfOverlay" class="pdf-overlay">
+        <div class="pdf-loader">
+            <div class="pdf-spinner"></div>
+            <p>Génération du PDF en cours...</p>
+        </div>
+    </div>
 
     <!-- Category Tabs -->
     <nav class="book-tabs">
@@ -875,9 +894,364 @@
                 }
             }, { passive: true });
 
+            // Click/Tap on page to navigate (cycle through pages)
+            book.addEventListener('click', (e) => {
+                // Ignore clicks on interactive elements
+                if (e.target.closest('a, button, .menu-item')) return;
+
+                // Check if it's the last page, go back to cover
+                if (currentPage >= totalPages - 1) {
+                    goToPage(0);
+                } else {
+                    // Otherwise go to next page
+                    goToPage(currentPage + 1);
+                }
+            });
+
             // Initialize
             updateUI();
         });
+
+        // ============================================
+        // PDF GENERATION avec html2pdf.js
+        // ============================================
+        document.getElementById('downloadPdfBtn').addEventListener('click', generatePDF);
+
+        function generatePDF() {
+            const overlay = document.getElementById('pdfOverlay');
+            overlay.classList.add('active');
+
+            // Créer un conteneur temporaire pour le contenu PDF
+            const pdfContent = document.createElement('div');
+            pdfContent.id = 'pdf-content-temp';
+            pdfContent.innerHTML = `
+                <style>
+                    #pdf-content-temp {
+                        font-family: Georgia, 'Times New Roman', serif;
+                        color: #2C2320;
+                        background: #fff;
+                        width: 210mm;
+                    }
+                    #pdf-content-temp .pdf-page {
+                        width: 210mm;
+                        height: 297mm;
+                        padding: 12mm 18mm;
+                        box-sizing: border-box;
+                        background: #fff;
+                        overflow: hidden;
+                        position: relative;
+                    }
+
+                    /* Cover */
+                    #pdf-content-temp .pdf-cover {
+                        background: linear-gradient(155deg, #C41E3A 0%, #9B1830 100%);
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                    #pdf-content-temp .pdf-cover h1 { font-size: 42pt; margin-bottom: 8mm; letter-spacing: 4px; font-weight: 400; }
+                    #pdf-content-temp .pdf-cover .subtitle { font-size: 13pt; letter-spacing: 6px; text-transform: uppercase; opacity: 0.9; }
+                    #pdf-content-temp .pdf-cover .divider { font-size: 22pt; margin: 12mm 0; color: #C9A227; }
+                    #pdf-content-temp .pdf-cover .menu-label {
+                        font-size: 18pt; letter-spacing: 10px; text-transform: uppercase;
+                        border: 2px solid rgba(255,255,255,0.4); padding: 6mm 18mm;
+                    }
+
+                    /* Content pages */
+                    #pdf-content-temp .pdf-header { text-align: center; margin-bottom: 6mm; padding-bottom: 3mm; border-bottom: 2px solid #C41E3A; }
+                    #pdf-content-temp .pdf-header h2 { font-size: 20pt; color: #C41E3A; margin: 0 0 2mm 0; font-weight: 600; }
+                    #pdf-content-temp .pdf-header p { font-size: 9pt; color: #C9A227; text-transform: uppercase; letter-spacing: 3px; margin: 0; }
+
+                    #pdf-content-temp .pdf-section { margin-bottom: 5mm; }
+                    #pdf-content-temp .pdf-section-title {
+                        font-size: 10pt; color: #C9A227; font-weight: 600;
+                        text-transform: uppercase; letter-spacing: 2px;
+                        margin-bottom: 2mm; padding-bottom: 1.5mm; border-bottom: 1px solid #eee;
+                    }
+
+                    #pdf-content-temp .pdf-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1.5mm 0; border-bottom: 1px dotted #ddd; }
+                    #pdf-content-temp .pdf-item:last-child { border-bottom: none; }
+                    #pdf-content-temp .pdf-item-name { font-size: 9pt; font-weight: 500; }
+                    #pdf-content-temp .pdf-item-desc { font-size: 7pt; color: #8C827D; font-style: italic; display: block; }
+                    #pdf-content-temp .pdf-item-price { font-size: 9pt; font-weight: 600; color: #C41E3A; white-space: nowrap; }
+
+                    #pdf-content-temp .pdf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5mm 8mm; }
+                    #pdf-content-temp .pdf-grid-item { display: flex; justify-content: space-between; font-size: 8pt; padding: 1.5mm 0; }
+
+                    #pdf-content-temp .pdf-chips { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 2mm; }
+                    #pdf-content-temp .pdf-chip { background: #FDF2F4; color: #C41E3A; padding: 1.5mm 3mm; border-radius: 2mm; font-size: 7pt; }
+
+                    #pdf-content-temp .pdf-signature {
+                        background: linear-gradient(135deg, #C9A227 0%, #A68618 100%);
+                        color: white; text-align: center; padding: 3mm; border-radius: 2mm; margin: 3mm 0;
+                    }
+                    #pdf-content-temp .pdf-signature h4 { font-size: 11pt; margin: 0; }
+                    #pdf-content-temp .pdf-signature span { font-size: 8pt; }
+
+                    #pdf-content-temp .pdf-note { background: #FDF2F4; padding: 2mm; border-radius: 2mm; font-size: 7pt; color: #5C524D; text-align: center; margin-top: 3mm; }
+
+                    /* Footer page */
+                    #pdf-content-temp .pdf-footer-page {
+                        background: linear-gradient(155deg, #2C2320 0%, #1C1715 100%);
+                        color: white;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                    #pdf-content-temp .pdf-footer-page h2 { font-size: 30pt; color: #C9A227; margin-bottom: 4mm; }
+                    #pdf-content-temp .pdf-footer-page .script { font-size: 14pt; font-style: italic; margin-bottom: 12mm; }
+                    #pdf-content-temp .pdf-footer-page .info { font-size: 10pt; margin: 2mm 0; opacity: 0.9; }
+                    #pdf-content-temp .pdf-footer-page .phone { font-size: 13pt; color: #C9A227; font-weight: 600; margin-top: 6mm; }
+                </style>
+
+                <!-- Page 1: Couverture -->
+                <div class="pdf-page pdf-cover">
+                    <h1>La Cerise</h1>
+                    <p class="subtitle">Pâtisserie & Glacier</p>
+                    <div class="divider">◆</div>
+                    <div class="menu-label">Menu</div>
+                </div>
+
+                <!-- Page 2: Pâtisseries -->
+                <div class="pdf-page">
+                    <div class="pdf-header">
+                        <h2>Pâtisseries</h2>
+                        <p>Artisanales</p>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Cake & Cookies</div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Tranche cake</span><span class="pdf-item-desc">Marbré, citron, vanille, chocolat</span></div><span class="pdf-item-price">2 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Cookie</span><span class="pdf-item-price">1 500 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Moelleux chocolat</span><span class="pdf-item-price">3 500 F</span></div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Amuse-bouche</div>
+                        <div class="pdf-item"><span class="pdf-item-name">Bonbon chocolat</span><span class="pdf-item-price">1 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Macaron</span><span class="pdf-item-price">1 200 F</span></div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Verrine chocolat</span><span class="pdf-item-desc">Chocolat / trois chocolats</span></div><span class="pdf-item-price">2 000 F</span></div>
+                    </div>
+                    <div class="pdf-note">Trompe-l'œil & Tartes disponibles en vitrine</div>
+                </div>
+
+                <!-- Page 3: Crêpes & Gaufres -->
+                <div class="pdf-page">
+                    <div class="pdf-header">
+                        <h2>Crêpes & Gaufres</h2>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Crêpes</div>
+                        <div class="pdf-item"><span class="pdf-item-name">Crêpe au sucre</span><span class="pdf-item-price">4 500 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Crêpe trois chocolats</span><span class="pdf-item-price">6 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Crêpe au chocolat</span><span class="pdf-item-price">6 000 F</span></div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Crêpe Kunafa pistache</span><span class="pdf-item-desc">Spécialité du Chef</span></div><span class="pdf-item-price">6 500 F</span></div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Pancakes & Gaufres</div>
+                        <div class="pdf-item"><span class="pdf-item-name">Pancake chocolat</span><span class="pdf-item-price">5 500 F</span></div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Pancake marocain</span><span class="pdf-item-desc">Beurre et miel</span></div><span class="pdf-item-price">5 500 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Gaufres au sucre</span><span class="pdf-item-price">4 500 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Gaufres fruits rouges</span><span class="pdf-item-price">6 500 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Gaufres au chocolat</span><span class="pdf-item-price">6 500 F</span></div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Pain perdu</span><span class="pdf-item-desc">Glace vanille, caramel beurre salé</span></div><span class="pdf-item-price">6 000 F</span></div>
+                    </div>
+                </div>
+
+                <!-- Page 4: Glaces -->
+                <div class="pdf-page">
+                    <div class="pdf-header">
+                        <h2>Glaces</h2>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Cornets & Boules</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Cornet simple</span><span>1 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Cornet double</span><span>2 000 F</span></div>
+                            <div class="pdf-grid-item"><span>1 boule</span><span>1 500 F</span></div>
+                            <div class="pdf-grid-item"><span>2 boules</span><span>2 000 F</span></div>
+                            <div class="pdf-grid-item"><span>3 boules</span><span>3 000 F</span></div>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Classiques — 3 500 F</div>
+                        <div class="pdf-chips">
+                            <span class="pdf-chip">Sundae</span>
+                            <span class="pdf-chip">Milkshake</span>
+                            <span class="pdf-chip">Café liégeois</span>
+                            <span class="pdf-chip">Chocolat liégeois</span>
+                            <span class="pdf-chip">Dame blanche</span>
+                        </div>
+                    </div>
+                    <div class="pdf-signature">
+                        <span>★ Signature ★</span>
+                        <h4>Coupe La Cerise — 4 000 F</h4>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Toutes les coupes — 4 000 F</div>
+                        <div class="pdf-chips">
+                            <span class="pdf-chip">Banana Split</span>
+                            <span class="pdf-chip">Coupe fruits</span>
+                            <span class="pdf-chip">Oreo</span>
+                            <span class="pdf-chip">Snickers</span>
+                            <span class="pdf-chip">KitKat</span>
+                            <span class="pdf-chip">Kinder Bueno</span>
+                            <span class="pdf-chip">Ferrero</span>
+                            <span class="pdf-chip">Spéculoos</span>
+                            <span class="pdf-chip">Raffaello</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 5: Déjeuner -->
+                <div class="pdf-page">
+                    <div class="pdf-header">
+                        <h2>Déjeuner</h2>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Petit-déjeuner</div>
+                        <div class="pdf-item"><span class="pdf-item-name">Matin</span><span class="pdf-item-price">3 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Chakchouka</span><span class="pdf-item-price">3 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Assiette complète</span><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Croissant + boisson chaude</span><span class="pdf-item-price">3 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Pain chocolat + boisson</span><span class="pdf-item-price">3 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Œufs brouillés + pain</span><span class="pdf-item-price">3 000 F</span></div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Omelettes & Toasts</div>
+                        <div class="pdf-item"><div><span class="pdf-item-name">Omelette Khiyar</span><span class="pdf-item-desc">Halloumi, crudités & pain</span></div><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Omelette shakshouka</span><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Toast Avocat</span><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Toast Avocat + œuf</span><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Brioche perdue</span><span class="pdf-item-price">6 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Club sandwich</span><span class="pdf-item-price">6 000 F</span></div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Salades & Dessert</div>
+                        <div class="pdf-item"><span class="pdf-item-name">Salade César</span><span class="pdf-item-price">7 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Salade Saumon</span><span class="pdf-item-price">8 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Salade La Cerise ★</span><span class="pdf-item-price">8 000 F</span></div>
+                        <div class="pdf-item"><span class="pdf-item-name">Cheesecake ★</span><span class="pdf-item-price">5 000 F</span></div>
+                    </div>
+                </div>
+
+                <!-- Page 6: Boissons -->
+                <div class="pdf-page">
+                    <div class="pdf-header">
+                        <h2>Boissons</h2>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Jus de Fruits</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Jus simple</span><span>3 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Jus pressé</span><span>3 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Cocktail de fruits</span><span>5 000 F</span></div>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Mocktails — 4 000 F</div>
+                        <div class="pdf-chips">
+                            <span class="pdf-chip">Limonade 3k</span>
+                            <span class="pdf-chip">Berry Burn</span>
+                            <span class="pdf-chip">Virgin Colada</span>
+                            <span class="pdf-chip">Frozen Margarita</span>
+                            <span class="pdf-chip">Virgin Mojito</span>
+                            <span class="pdf-chip">Blue Lagoon</span>
+                            <span class="pdf-chip">La Cerise ★</span>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Boissons Froides</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Milkshake</span><span>5 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Frappuccino</span><span>5 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Ice tea</span><span>3 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Smoothie</span><span>5 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Jus detox</span><span>5 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Chocolat froid</span><span>4 000 F</span></div>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Cafés</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Espresso</span><span>1 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Double Espresso</span><span>2 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Latte</span><span>2 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Americano</span><span>2 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Cappuccino</span><span>3 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Café latte</span><span>3 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Affogato</span><span>3 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Café moka</span><span>3 500 F</span></div>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Thés & Chocolats Chauds</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Thé chaud / infusion</span><span>2 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Matcha</span><span>3 500 F</span></div>
+                            <div class="pdf-grid-item"><span>Chocolat chaud</span><span>3 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Chocolat blanc/noir</span><span>3 000 F</span></div>
+                        </div>
+                    </div>
+                    <div class="pdf-section">
+                        <div class="pdf-section-title">Soft Drinks</div>
+                        <div class="pdf-grid">
+                            <div class="pdf-grid-item"><span>Eau 30ml</span><span>500 F</span></div>
+                            <div class="pdf-grid-item"><span>Eau 50ml</span><span>1 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Eau 1.5L</span><span>2 000 F</span></div>
+                            <div class="pdf-grid-item"><span>Perrier / Tonic</span><span>2 000 F</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 7: Merci -->
+                <div class="pdf-page pdf-footer-page">
+                    <h2>Merci</h2>
+                    <p class="script">de votre visite</p>
+                    <p class="info">—</p>
+                    <p class="info">Abidjan, Côte d'Ivoire</p>
+                    <p class="phone">+225 05 75 73 71 73</p>
+                    <p class="info" style="margin-top: 10mm;">Commande minimum 3h à l'avance</p>
+                </div>
+            `;
+
+            // Ajouter au document
+            document.body.appendChild(pdfContent);
+
+            // Options pour html2pdf
+            const opt = {
+                margin: 0,
+                filename: 'Menu-La-Cerise.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    backgroundColor: '#ffffff'
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
+                },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            // Générer le PDF
+            html2pdf().set(opt).from(pdfContent).save().then(() => {
+                // Supprimer le conteneur temporaire
+                document.body.removeChild(pdfContent);
+                overlay.classList.remove('active');
+            }).catch((error) => {
+                console.error('Erreur PDF:', error);
+                document.body.removeChild(pdfContent);
+                overlay.classList.remove('active');
+                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+            });
+        }
     </script>
 </body>
 </html>
